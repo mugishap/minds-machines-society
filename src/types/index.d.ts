@@ -11,3 +11,10 @@ export interface INew {
     date: number;
     text: string;
 }
+
+export interface IResearch {
+    heading: string;
+    subheading: string;
+    concepts: string[];
+    image: string;
+}

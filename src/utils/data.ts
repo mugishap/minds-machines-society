@@ -1,9 +1,10 @@
-import { INew, ISidebarLink } from "../types";
+import { INew, IResearch, ISidebarLink } from "../types";
 import { FaBook, FaGraduationCap } from "react-icons/fa"
 import { BsCalendarWeekFill } from "react-icons/bs"
 import { BiSearchAlt2 } from "react-icons/bi"
 import { HiUserGroup } from 'react-icons/hi'
 import { MdContactPhone } from 'react-icons/md'
+import { NaturalProcessing, SocialMedia } from "../assets";
 
 export const sidebarLinks: ISidebarLink[] = [
     {
@@ -85,22 +86,50 @@ D., MSc, and BSc from MIT</#FF6737> in 2015, 2010, and 2008.
 `
 
 export const news: INew[] = [
-{
-    date: 1632931200000,
-    text:`
+    {
+        date: 1632931200000,
+        text: `
     Excited to participate in a panel titled "Is It Real or Is It AI?" at the [2023 New Hampshire Digital Government Summit](https://events.govtech.com/New-Hampshire-Digital-Government-Summit.html) on the ethics, challenges, and promises of generative AI.
     `
-},
-{
-    date: 1632931200000,
-    text:`
+    },
+    {
+        date: 1632931200000,
+        text: `
     Excited to participate in a panel titled "Is It Real or Is It AI?" at the [2023 New Hampshire Digital Government Summit](https://events.govtech.com/New-Hampshire-Digital-Government-Summit.html) on the ethics, challenges, and promises of generative AI.
     `
-},
-{
-    date: 1632931200000,
-    text:`
+    },
+    {
+        date: 1632931200000,
+        text: `
     Excited to participate in a panel titled "Is It Real or Is It AI?" at the [2023 New Hampshire Digital Government Summit](https://events.govtech.com/New-Hampshire-Digital-Government-Summit.html) on the ethics, challenges, and promises of generative AI.
     `
-},
+    },
+]
+
+export const researches: IResearch[] = [
+    {
+        heading: "Natural Language Processing & Machine Learning",
+        subheading: "Our work on natural language processing and machine learning includes:",
+        concepts: [
+            "Developing interpretability methods for Large Language Models",
+            "Guided natural language generation using Large Language Models",
+            "Detecting and mitigating antisocial tendencies of Large Language Models, such as bias and lack of alignment with human moral values",
+            "Using Transformer-based models",
+            "Understanding, modeling, and transferring style in text",
+            "Exploring prompt-based and few-shot learning"
+        ],
+        image: NaturalProcessing
+    },
+    {
+        heading: "Social Media Analytics, Computational Social Science, and Graphs",
+        subheading: "Our work in social media analytics, computational social science, and graphs includes:",
+        concepts: [
+            "Extracting information from noisy user-generated text",
+            "Modeling user behavior (e.g., behavioral modeling, demographic/psychometric classification, etc.)",
+            "Modeling malicious behavior (e.g., influence campaigns, propaganda, etc.)",
+            "Modeling information diffusion in networks",
+            "Using representation learning on graphs"
+        ],
+        image: SocialMedia
+    },
 ]

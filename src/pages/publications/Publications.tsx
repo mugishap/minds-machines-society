@@ -93,7 +93,7 @@ const Publications: React.FC = () => {
                 </div>
 
             </div>
-            
+
         </Layout>
     )
 }
