@@ -1,4 +1,4 @@
-import { INew, IResearch, ISidebarLink, ITeaching } from "../types";
+import { IAlumni, INew, IProfile, IResearch, IResearchAssisstants, ISidebarLink, ITeaching } from "../types";
 import { FaBook, FaGraduationCap } from "react-icons/fa"
 import { BsCalendarWeekFill } from "react-icons/bs"
 import { BiSearchAlt2 } from "react-icons/bi"
@@ -166,3 +166,92 @@ export const teachings: ITeaching[] = [
         metadata: "Winter 2020"
     },
 ]
+
+export const profile: IProfile = {
+    name: "Soroush Vosoughi",
+    roles: [
+        "Assistant Professor of Computer Science, Dartmouth College",
+        "Faculty Member, the Institute for Security, Technology and Society (ISTS), Dartmouth College",
+        "Faculty Affiliate, Graduate Program in Quantitative Social Science (QSS), Dartmouth College",
+        "Faculty Affiliate, Graduate Program in Quantitative Biomedical Sciences (QBS), Dartmouth College",
+        "Faculty Affiliate, Arthur L. Irving Institute for Energy & Society, Dartmouth College"
+    ],
+    phdStudents: [
+        {
+            url: "https://www.cs.dartmouth.edu/~rbliu/",
+            name: "Ruibo Liu"
+        },
+        {
+            url: "https://web.cs.dartmouth.edu/people/lili-wang",
+            name: "Lili Wang"
+        },
+        {
+            url: "#",
+            name: "Weicheng Ma "
+        },
+        {
+            url: "https://web.cs.dartmouth.edu/people/xiaobo-guo",
+            name: "Xiaobo Guo"
+        },
+        {
+            url: "https://www.cs.dartmouth.edu/~yirenjian/",
+            name: "Yiren Jian"
+        },
+        {
+            url: "#",
+            name: "Sean Xie (jointly with Prof. Saeed Hassanpour, Geisel School of Medicine)"
+        }
+    ],
+    visitingScholar: {
+        url: "https://neetip.github.io/",
+        name: "Neeti Pokhriyal"
+    },
+    mastersStudents: [
+        "Zhiyan Zhong (MSc in Computer Science)",
+        "Zachary S. Gottesman (MSc in Computer Science) ",
+        "Timothy Yang (MSc in Computer Science)",
+        "Chenhao Zhao (MSc in Quantitative Biomedical Sciences)"
+    ],
+    undergraduateStudents: [
+        "Sarah M. Chacko (Senior Thesis in Computer Science) ",
+        "Samiha Datta (Senior Thesis in Computer Science) ",
+        "Anders Knospe (Senior Thesis in Computer Science)",
+        "Rishik Lad(Senior Thesis in Computer Science) "
+    ]
+}
+
+export const alumni:IAlumni = {
+    postDocs: {
+        url: "https://neetip.github.io/",
+        name: "Neeti Pokhriyal",
+        metadata: "(jointly with Prof. Benjamin Valentino; 2019-2021)"
+    },
+    mscTheses: [
+        "Joseph Hajjar (MSc in Computer Science; 2022)",
+        "Sucharita Jayanti (MSc in Computer Science; 2021)"
+    ],
+    undergraduateSeniorTheses: [
+        "Tracey E. Mills (Senior Thesis in Computer Science; 2022)",
+        "Anne Bailey (Senior Thesis in Computer Science; 2022)",
+        "Caroline Tornquist (Senior Thesis in Computer Science; 2022)",
+        "Junhwi Kim (Senior Thesis in Computer Science; 2022)"
+    ]
+}
+
+export const researchAssisstants:IResearchAssisstants = {
+    phdStudents: [
+        "Weiyi Wu (BMDS rotation student)"
+    ],
+    mastersStudents: [
+        "Aadil Islam",
+        "Chongyang Gao",
+        "Anmol Chachra",
+        "Aarish Iyer",
+    ],
+    undergraduateStudents: [
+        "Clayton Bass",
+        "Tyler Brody",
+        "Daniel DiPietro",
+        "Danielle Fang"
+    ]
+}
