@@ -68,7 +68,7 @@ computational social science. We are particularly interested in studying <#FF673
 `
 
 export const description: string = `
-Prof. Vosoughi is a recipient of the <#FF6737> Google Research Scholar Award</#FF6737> in 2022 and an<#FF6737> Amazon Research Award<#FF6737> in 
+Prof. Vosoughi is a recipient of the <#FF6737> Google Research Scholar Award</#FF6737> in 2022 and an<#FF6737> Amazon Research Award</#FF6737> in 
 2019, and his work has earned several best paper awards and nominations, including the [outstanding paper award 
 at AAAI 2021](https://aaai.org/conference/aaai/aaai-21/aaai-outstanding-and-distinguished-papers/). 
 He is a faculty member of the [Institute for Security, Technology, and Society (ISTS)](https://ists.dartmouth.edu/) and a 
