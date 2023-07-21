@@ -1,4 +1,4 @@
-export const markupToText = (input: string): string => {
+export const markupToText = (input: string, theme: 'light' | 'dark'): string => {
     const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
     const colorRegex = /<([^>]+)>([^<]+)<\/\1>/g;
 
@@ -7,7 +7,7 @@ export const markupToText = (input: string): string => {
     }
 
     const replaceColors = (_: string, color: string, text: string): string => {
-        return `<span style="color: ${color}">${text}</span>`;
+        return theme === "light" ? `<span style="color: ${color}">${text}</span>` : `<span style="color: #FFD337">${text}</span>`;
     }
 
     const formattedText = input

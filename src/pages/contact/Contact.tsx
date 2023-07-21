@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
     }, []);
     return (
         <Layout>
-            <div className='w-full bg-white flex flex-col p-6 px-10 rounded-2xl my-6 font-bold text-lg'>
+            <div className='w-full bg-white flex flex-col p-6 px-10 rounded-2xl my-6 font-bold text-lg dark:bg-[#323232] dark:text-white'>
                 <Link className='flex items-center my-2' to={`mailto:${"soroush.vosoughi@dartmouth.edu"}`}>
                     <BsEnvelopeAtFill size={20} />
                     <span className='ml-3'>soroush.vosoughi@dartmouth.edu</span>

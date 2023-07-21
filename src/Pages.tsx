@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CommonContext } from './context'
 import Publications from './pages/publications/Publications'
@@ -10,14 +10,18 @@ import Notfound from './pages/404/Notfound'
 const Home = React.lazy(() => import('./pages/home/Home'))
 
 const Pages: React.FC<{}> = () => {
-
+    const [theme, setTheme] = React.useState<'light' | 'dark'>("light")
+    useEffect(() => {
+        localStorage.setItem("theme", theme)
+    }, [theme])
     return (
         <CommonContext.Provider
             value={{
-
+                theme,
+                setTheme
             }}
         >
-            <div>
+            <div className={`${theme === "dark" && "dark"}`}>
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home />} />
