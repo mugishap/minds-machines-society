@@ -1,0 +1,14 @@
+# Ignore development-specific files and folders
+node_modules
+yarn-error.log
+yarn.lock
+package-lock.json
+*.env
+
+# Ignore any files/folders you don't want to include in the Docker image
+# For example:
+# logs
+# .git
+# .vscode
+# .idea
+# etc.
