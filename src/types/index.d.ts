@@ -18,3 +18,9 @@ export interface IResearch {
     concepts: string[];
     image: string;
 }
+
+export interface ITeaching {
+    url: string,
+    title: string,
+    metadata: string
+}

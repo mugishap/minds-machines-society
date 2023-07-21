@@ -1,4 +1,4 @@
-import { INew, IResearch, ISidebarLink } from "../types";
+import { INew, IResearch, ISidebarLink, ITeaching } from "../types";
 import { FaBook, FaGraduationCap } from "react-icons/fa"
 import { BsCalendarWeekFill } from "react-icons/bs"
 import { BiSearchAlt2 } from "react-icons/bi"
@@ -131,5 +131,38 @@ export const researches: IResearch[] = [
             "Using representation learning on graphs"
         ],
         image: SocialMedia
+    },
+]
+
+export const teachings: ITeaching[] = [
+    {
+        title: "Machine Learning and Statistical Data Analysis",
+        url: "http://dartmouth.smartcatalogiq.com/current/orc/Departments-Programs-Undergraduate/Computer-Science/COSC-Computer-Science-Undergraduate/COSC-74",
+        metadata: "Winter 2023, Spring 2022, Winter 2022, Fall 2021, Spring 2021, Spring 2020, Fall 2019"
+    },
+    {
+        title: "Foundations of Applied Computer Science",
+        url: "https://dartmouth.smartcatalogiq.com/en/current/orc/Departments-Programs-Undergraduate/Computer-Science/COSC-Computer-Science-Undergraduate/COSC-70",
+        metadata: "Fall 2023"
+    },
+    {
+        title: "Artificial Intelligence",
+        url: "https://dartmouth.smartcatalogiq.com/en/current/orc/Departments-Programs-Undergraduate/Computer-Science/COSC-Computer-Science-Undergraduate/COSC-70",
+        metadata: "Fall 2022"
+    },
+    {
+        title: "Data Mining and Knowledge Discovery",
+        url: "https://dartmouth.smartcatalogiq.com/en/current/orc/Departments-Programs-Undergraduate/Computer-Science/COSC-Computer-Science-Undergraduate/COSC-70",
+        metadata: "Fall 2023, Winter 2021, Spring 2019"
+    },
+    {
+        title: "Responsible and Ethical Conduct of Research Fall 2023, Fall 2022",
+        url: "https://dartmouth.smartcatalogiq.com/en/current/orc/Departments-Programs-Undergraduate/Computer-Science/COSC-Computer-Science-Undergraduate/COSC-70",
+        metadata: "Fall 2023, Fall 2022"
+    },
+    {
+        title: "Network Science and Complex Systems Winter 2020",
+        url: "https://dartmouth.smartcatalogiq.com/en/current/orc/Departments-Programs-Undergraduate/Computer-Science/COSC-Computer-Science-Undergraduate/COSC-70",
+        metadata: "Winter 2020"
     },
 ]
