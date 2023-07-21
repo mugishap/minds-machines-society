@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../layout/Layout'
 
 const Contact: React.FC = () => {
     return (
-        <div>Contact</div>
+        <Layout>
+
+        </Layout>
     )
 }
 

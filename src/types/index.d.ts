@@ -6,3 +6,8 @@ export interface ISidebarLink {
     path: string;
     navbarHeading: string
 }
+
+export interface INew {
+    date: number;
+    text: string;
+}

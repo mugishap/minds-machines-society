@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../layout/Layout'
 
 const People: React.FC = () => {
     return (
-        <div>People</div>
+        <Layout>
+
+        </Layout>
     )
 }
 
