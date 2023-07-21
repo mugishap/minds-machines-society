@@ -12,7 +12,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             <Sidebar />
             <div className='w-9/12 flex flex-col bg-[#EDEDED] min-h-screen overflow-y-scroll p-10'>
                 <Navbar />
-                <div className='flex flex-col mt-10'>{children}</div>
+                <div className='flex flex-col mt-6'>{children}</div>
             </div>
         </div>
     )

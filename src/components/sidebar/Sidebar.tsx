@@ -25,11 +25,11 @@ const Sidebar: React.FC = () => {
                     }
                 </div>
             </div>
-            <div className='px-6 rounded-3xl cursor-pointer py-2 flex items-center bg-[#eee] w-fit'>
+            <label htmlFor='mode-switcher' className='px-6 rounded-3xl cursor-pointer py-2 flex items-center bg-[#eee] w-fit'>
                 <BsFillMoonFill size={25} className='' />
                 <span className='mx-4'>Dark Mode</span>
-                <Switch color='primary' />
-            </div>
+                <Switch id='mode-switcher' color='primary' />
+            </label>
         </div>
     )
 }
