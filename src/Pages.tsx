@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CommonContext } from './context'
-import Publications from './pages/publications/Publications'
-import Research from './pages/research/Research'
-import Teaching from './pages/teaching/Teaching'
-import People from './pages/people/People'
-import Contact from './pages/contact/Contact'
-import Notfound from './pages/404/Notfound'
+const Publications = React.lazy(() => import('./pages/publications/Publications'))
+const Research = React.lazy(() => import('./pages/research/Research'))
+const Teaching = React.lazy(() => import('./pages/teaching/Teaching'))
+const People = React.lazy(() => import('./pages/people/People'))
+const Contact = React.lazy(() => import('./pages/contact/Contact'))
+const Notfound = React.lazy(() => import('./pages/404/Notfound'))
 const Home = React.lazy(() => import('./pages/home/Home'))
 
 const Pages: React.FC<{}> = () => {
