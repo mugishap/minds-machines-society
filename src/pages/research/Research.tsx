@@ -24,7 +24,7 @@ const Research: React.FC = () => {
                                             }
                                         </ul>
                                     </div>
-                                    <img src={research.image} className='w-52 h-52' alt={research.heading} />
+                                    <img src={research.image} className='smm20:flex hidden w-36 lg:w-52 h-36 lg:h-52' alt={research.heading} />
                                 </div>
                             </div>
                         )

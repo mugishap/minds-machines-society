@@ -11,6 +11,8 @@ const Home = React.lazy(() => import('./pages/home/Home'))
 
 const Pages: React.FC<{}> = () => {
     const [theme, setTheme] = React.useState<'light' | 'dark'>("light")
+    const [showNavbar, setShowNavbar] = React.useState<boolean>(false)
+
     useEffect(() => {
         localStorage.setItem("theme", theme)
     }, [theme])
@@ -18,7 +20,9 @@ const Pages: React.FC<{}> = () => {
         <CommonContext.Provider
             value={{
                 theme,
-                setTheme
+                setTheme,
+                showNavbar,
+                setShowNavbar
             }}
         >
             <div className={`${theme === "dark" && "dark"}`}>

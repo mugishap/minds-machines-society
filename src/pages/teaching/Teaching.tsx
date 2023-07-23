@@ -12,7 +12,7 @@ const Teaching: React.FC = () => {
             {view === 'list' && teachings.map((teaching, index) => (
                 <span key={index} className='flex my-3 dark:text-white'><Link className='underline text-[#FF6737] mr-2 dark:text-[#FFD337]' to={teaching.url}>{teaching.title}</Link>{teaching.metadata}</span>
             ))}
-            {view === 'grid' && <div className='w-full grid grid-cols-3'>
+            {view === 'grid' && <div className='w-full grid grid-cols-1 dsm:grid-cols-2 md:grid-cols-3'>
                 {
                     teachings.map((teaching, index) => (
                         <span key={index} className='flex h-48 my-3 flex-col p-4 bg-white items-center w-11/12 rounded-xl dark:text-white dark:bg-[#323232]'><Link className='underline text-[#FF6737] mr-2 dark:text-[#FFD337]' to={teaching.url}>{teaching.title}</Link>{teaching.metadata}</span>

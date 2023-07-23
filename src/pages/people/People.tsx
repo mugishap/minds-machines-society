@@ -8,9 +8,10 @@ const People: React.FC = () => {
     return (
         <Layout>
             <div className='p-5 rounded-2xl text-2xl bg-white w-full text-[#FF6737] font-bold dark:text-[#FFD337] dark:bg-[#323232]'>PI</div>
+            <img src={Profile} className='w-32 my-4 h-32 object-cover tab:hidden flex rounded-full border-white border-2 mx-auto' alt="Profile image" />
             <div className='w-full flex my-6 '>
-                <img src={Profile} className='mr-8 w-3/12 object-cover' alt="Profile image" />
-                <div className='bg-white flex flex-col p-6 w-9/12 px-12 rounded-2xl text-lg dark:text-white dark:bg-[#323232]'>
+                <img src={Profile} className='mr-8 w-3/12 object-cover tab:flex hidden' alt="Profile image" />
+                <div className='bg-white flex flex-col p-6 w-full tab:w-9/12 px-12 rounded-2xl text-lg dark:text-white dark:bg-[#323232]'>
                     <ul className='list-disc pl-4'>
                         <li className='font-bold my-1'>{profile.name}</li>
                         {

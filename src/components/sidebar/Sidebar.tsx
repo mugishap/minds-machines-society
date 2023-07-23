@@ -9,7 +9,7 @@ import { sidebarLinks } from '../../utils/data'
 const Sidebar: React.FC = () => {
     const { theme, setTheme } = React.useContext(CommonContext)
     return (
-        <div className='w-3/12 flex flex-col bg-white shadow-lg justify-between px-4 py-10 dark:bg-[#202020]'>
+        <div className='w-3/12 hidden lg:flex flex-col bg-white shadow-lg justify-between px-4 py-10 dark:bg-[#202020]'>
             <div>
                 <span className='font-extrabold text-4xl text-center dark:text-white'>LOGO</span>
                 <div className='flex flex-col px-6 mt-10 w-full'>
