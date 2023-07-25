@@ -10,8 +10,8 @@ const Sidebar: React.FC = () => {
     const { theme, setTheme } = React.useContext(CommonContext)
     return (
         <div className='w-3/12 hidden lg:flex flex-col bg-white shadow-lg justify-between px-4 py-10 dark:bg-[#202020]'>
-            <div>
-                <span className='font-extrabold text-4xl text-center dark:text-white'>LOGO</span>
+            <div className='w-full flex flex-col items-center'>
+                <span className='font-extrabold text-4xl  dark:text-white'>LOGO</span>
                 <div className='flex flex-col px-6 mt-10 w-full'>
                     {
                         sidebarLinks.map((link: ISidebarLink, index: number) => {
@@ -27,9 +27,9 @@ const Sidebar: React.FC = () => {
                     }
                 </div>
             </div>
-            <label htmlFor='mode-switcher' className='px-6 rounded-3xl cursor-pointer py-2 flex items-center bg-[#eee] w-fit'>
-                <BsFillMoonFill size={25} className='' />
-                <span className='mx-4'>Dark Mode</span>
+            <label htmlFor='mode-switcher' className='px-6 rounded-3xl cursor-pointer py-2 flex items-center bg-[#eee] dark:bg-[#686868] w-fit'>
+                <BsFillMoonFill size={25} className='text-black dark:text-yellow-400' />
+                <span className='mx-4 dark:text-white text-black'>Dark Mode</span>
                 <Switch onClick={() => setTheme(() => theme == "dark" ? "light" : "dark")} id='mode-switcher' color='primary' />
             </label>
         </div>
