@@ -1,1 +1,1 @@
-# minds-machines-society
+ # minds-machines-socirty
