@@ -49,3 +49,23 @@ export interface IResearchAssisstants {
     mastersStudents: string[];
     undergraduateStudents: string[]
 }
+
+export interface ILoginData {
+    username: string,
+    password: string
+}
+
+export interface ICreateNewsData {
+    title: string,
+    text: string
+}
+
+export interface ICreatePublicationData {
+    title: string,
+    articles: {
+        name: string
+        collaborators: string
+        time: string
+        description: string
+    }[],
+}
