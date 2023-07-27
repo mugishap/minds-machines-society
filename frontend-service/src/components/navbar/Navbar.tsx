@@ -5,7 +5,7 @@ import { BiMenu } from 'react-icons/bi'
 import { CommonContext } from '../../context'
 
 const Navbar: React.FC = () => {
-    const { setShowNavbar } = React.useContext(CommonContext)
+    const { setShowSidebar } = React.useContext(CommonContext)
     return (
         <div className='w-full rounded-xl bg-white dark:bg-[#323232] p-8 flex items-center justify-between'>
             <span className='font-bold text-2xl dark:text-white'>
@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
                     )
                 }
             </span>
-            <BiMenu size={25} className="flex cursor-pointer lg:hidden dark:text-white" onClick={() => setShowNavbar(true)} />
+            <BiMenu size={25} className="flex cursor-pointer lg:hidden dark:text-white" onClick={() => setShowSidebar(true)} />
         </div>
     )
 }

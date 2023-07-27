@@ -9,12 +9,12 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
-    const { showNavbar } = React.useContext(CommonContext)
+    const { showSidebar } = React.useContext(CommonContext)
 
     return (
         <div className='w-full flex h-screen'>
             {
-                showNavbar && <MobileNavbar />
+                showSidebar && <MobileNavbar />
             }
             <Sidebar />
             <div className='w-full lg:w-9/12 flex flex-col bg-[#EDEDED] dark:bg-[#222222] min-h-screen overflow-y-scroll p-4 sm:p-10'>

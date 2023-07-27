@@ -1,0 +1,29 @@
+.admin-notlogged {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.admin-page form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.news-preview,
+.publications-preview {
+    margin: 40px 0;
+    border: 1px solid red;
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+    margin: 10px 0;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CommonContext } from './context'
+const Admin = React.lazy(() => import('./pages/admin/Admin'))
 const Publications = React.lazy(() => import('./pages/publications/Publications'))
 const Research = React.lazy(() => import('./pages/research/Research'))
 const Teaching = React.lazy(() => import('./pages/teaching/Teaching'))
@@ -11,7 +12,8 @@ const Home = React.lazy(() => import('./pages/home/Home'))
 
 const Pages: React.FC<{}> = () => {
     const [theme, setTheme] = React.useState<'light' | 'dark'>("light")
-    const [showNavbar, setShowNavbar] = React.useState<boolean>(false)
+    const [showSidebar, setShowSidebar] = React.useState<boolean>(false)
+    const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false)
 
     useEffect(() => {
         localStorage.setItem("theme", theme)
@@ -19,16 +21,19 @@ const Pages: React.FC<{}> = () => {
     return (
         <CommonContext.Provider
             value={{
+                isLoggedIn,
+                setIsLoggedIn,
                 theme,
                 setTheme,
-                showNavbar,
-                setShowNavbar
+                showSidebar,
+                setShowSidebar
             }}
         >
             <div className={`${theme === "dark" && "dark"}`}>
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/admin" element={<Admin />} />
                         <Route path="/publications" element={<Publications />} />
                         <Route path="/research" element={<Research />} />
                         <Route path="/teaching" element={<Teaching />} />
