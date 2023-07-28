@@ -12,7 +12,7 @@ const createPublication = async (req, res) => {
             articles
         })
         await publication.save()
-        return res.status(201).json(ApiResponse.success("Publication created successfuly", {}))
+        return res.status(201).json(ApiResponse.success("Publication created successfuly", { publication }))
     } catch (error) {
         console.log(error)
         return res.status(500).json(ApiResponse.error("Internal Server Error", {}))

@@ -26,7 +26,6 @@ export const useGetNews = async ({ setLoading, setNews }: { setLoading: Function
         const response = await request.data
         setNews(response.data.news)
         setLoading(false)
-        console.log(response.data.news)
     } catch (error: any) {
         console.log(error)
         if (error.response.data.message) return toast.error(error.response.data.message)
@@ -44,6 +43,8 @@ export const useGetPublications = async ({ setLoading, setPublications }: { setL
         const request = await api.get("/publications/all")
         const response = request.data
         setPublications(response.data.publications)
+        setLoading(false)
+        console.log(response.data.publications)
     } catch (error: any) {
         console.log(error)
         if (error.response.data.message) return toast.error(error.response.data.message)
@@ -53,13 +54,14 @@ export const useGetPublications = async ({ setLoading, setPublications }: { setL
         setLoading(false)
     }
 }
-export const useCreateNews = async ({ data, addNews, setLoading }: { data: INews, addNews: Function, setLoading: Function }) => {
+export const useCreateNews = async ({ data, addNews, setLoading, setNewsData }: { data: INews, addNews: Function, setLoading: Function, setNewsData: Function }) => {
     try {
         setLoading(true)
         const request = await api.post("/news/create", data)
         const response = request.data
         toast.success(response.message)
         addNews(response.news)
+        setNewsData({ title: "", text: "" })
     } catch (error: any) {
         console.log(error)
         if (error.response.data.message) return toast.error(error.response.data.message)
@@ -70,16 +72,20 @@ export const useCreateNews = async ({ data, addNews, setLoading }: { data: INews
     }
 }
 
-export const useCreatePublication = async ({ data, addPublication, setLoading }: { data: IPublication, addPublication: Function, setLoading: Function }) => {
+export const useCreatePublication = async ({ data, addPublication, setLoading, setPublicationData }: { data: IPublication, addPublication: Function, setLoading: Function, setPublicationData: Function }) => {
     try {
         setLoading(true)
         const request = await api.post("/publications/create", data)
         const response = request.data
         toast.success(response.message)
-        addPublication(response.publication)
+        addPublication(response.data.publication)
+        setPublicationData({
+            title: '',
+            articles: []
+        })
+
     } catch (error: any) {
         console.log(error)
-        console.log(error);
         if (error.response.data.message) return toast.error(error.response.data.message)
         toast.error(error.message)
     }

@@ -17,7 +17,7 @@ const CreateNews: React.FC = () => {
         try {
             e.preventDefault()
             if (newsData.title.length < 1 || newsData.text.length < 1) return toast.error('Please fill all the fields')
-            await useCreateNews({ data: newsData, addNews, setLoading })
+            await useCreateNews({ data: newsData, addNews, setLoading, setNewsData })
         } catch (error) {
             console.log(error)
         }

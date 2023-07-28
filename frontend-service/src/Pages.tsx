@@ -21,12 +21,12 @@ const Pages: React.FC<{}> = () => {
     const [publications, setPublications] = React.useState<IPublication[]>([])
 
     const addNews = ({ _news }: { _news: INews }) => {
-        if (!news) return setNews([_news])
+        if (!news.length) return setNews([_news])
         setNews([...news, _news])
     }
 
     const addPublication = ({ publication }: { publication: IPublication }) => {
-        if (!publications) return setPublications([publication])
+        if (!publications.length) return setPublications([publication])
         setPublications([...publications, publication])
 
     }
