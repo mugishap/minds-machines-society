@@ -49,16 +49,16 @@ const Admin: React.FC = () => {
                     :
                     <div className='w-full flex flex-col items-center'>
                         <form className='w-11/12 sm:w-9/12 lg:w-5/12 flex flex-col items-center' onSubmit={handleLogin}>
-                            <span className='font-bold text-2xl mb-8'>Login</span>
+                            <span className='font-bold text-2xl mb-8 dark:text-white'>Login</span>
                             <div className='w-full'>
-                                <label className="text-sm font-medium leading-none text-gray-800">
+                                <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
                                     Username
                                 </label>
                                 <input
                                     aria-label="enter username"
                                     role="input"
                                     type="text"
-                                    className="bg-gray-200 border rounded focus:outline-none text-sm font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                                    className="bg-gray-200  border rounded focus:outline-none text-sm font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                                     placeholder="Username"
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                         setLoginData({ ...loginData, username: e.target.value });
@@ -67,7 +67,7 @@ const Admin: React.FC = () => {
                                 />
                             </div>
                             <div className="mt-6  w-full">
-                                <label className="text-sm font-medium leading-none text-gray-800">
+                                <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
                                     Password
                                 </label>
                                 <div className="relative flex items-center justify-center">
@@ -101,7 +101,7 @@ const Admin: React.FC = () => {
                                 <button
                                     role="button"
                                     aria-label="login "
-                                    className="focus:ring-2 flex items-center justify-center focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none  text-white focus:outline-none bg-green-500 border rounded hover:bg-green-600 duration-1000 hover:animate-ring py-4 w-full disabled:bg-slate-600"
+                                    className="focus:ring-2 flex items-center dark:bg-slate-800 justify-center focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none  text-white dark:border-none dark:outline-none bg-green-500 border rounded hover:bg-green-600 duration-1000 ring py-4 w-full disabled:bg-slate-600"
                                     type="submit"
                                     disabled={loading}
                                 >

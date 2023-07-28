@@ -3,6 +3,7 @@ import { BiLoaderAlt } from 'react-icons/bi';
 import { CommonContext } from '../../context';
 import { useCreatePublication } from '../../hooks';
 import { IPublication } from '../../types';
+import { toast } from 'react-toastify';
 
 const CreatePublication: React.FC = () => {
 
@@ -29,7 +30,7 @@ const CreatePublication: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault()
-      await useCreatePublication({ data: publicationData, addPublication, setLoading,setPublicationData })
+      await useCreatePublication({ data: publicationData, addPublication, setLoading, setPublicationData })
     } catch (error) {
       console.log(error);
     }
@@ -38,9 +39,9 @@ const CreatePublication: React.FC = () => {
   return (
     <div className='w-full flex flex-col mt-8 items-center'>
       <form className='w-11/12 lg:w-10/12 flex flex-col items-center' onSubmit={handleSubmit}>
-        <span className='font-bold text-2xl mb-8'>Create a New Publications</span>
+        <span className='font-bold text-2xl mb-8 dark:text-white'>Create a New Publications</span>
         <div className='w-full'>
-          <label className="text-sm font-medium leading-none text-gray-800">
+          <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
             Title
           </label>
           <input
@@ -56,23 +57,20 @@ const CreatePublication: React.FC = () => {
           />
         </div>
         <div className='w-full justify-between items-center flex'>
-          <span>Articles</span>
+          <span className=' dark:text-white'>Articles</span>
           <button type='button' className='bg-green-500 hover:bg-green-600 px-6 py-2 text-white' onClick={() => setAddArticleMode(!addArticleMode)}>{addArticleMode ? "Cancel" : "New Article"}</button>
         </div>
         {
           publicationData.articles.length > 0 && (
             <div className='w-full'>
-              <label className="text-sm font-medium leading-none text-gray-800">
-                Articles
-              </label>
               <div className='flex flex-col'>
                 {
                   publicationData.articles.map((article, index) => (
                     <div key={index} className='flex flex-col'>
-                      <span className='text-sm font-semibold'>{article.name}</span>
-                      <span className='text-sm font-semibold'>{article.collaborators}</span>
-                      <span className='text-sm font-semibold'>{article.time}</span>
-                      <span className='text-sm font-semibold'>{article.description}</span>
+                      <span className='text-sm font-semibold  dark:text-white my-2'>{article.name}</span>
+                      <span className='text-sm font-semibold  dark:text-white my-2'>{article.collaborators}</span>
+                      <span className='text-sm font-semibold  dark:text-white my-2'>{article.time}</span>
+                      <span className='text-sm font-semibold  dark:text-white my-2'>{article.description}</span>
                     </div>
                   ))
                 }
@@ -83,7 +81,7 @@ const CreatePublication: React.FC = () => {
         {
           addArticleMode && (
             <div className='w-full'>
-              <label className="text-sm font-medium leading-none text-gray-800">
+              <label className="text-sm font-medium leading-none text-gray-800  dark:text-white">
                 Publication Article
               </label>
               <div className='flex flex-col'>
@@ -132,6 +130,7 @@ const CreatePublication: React.FC = () => {
                   value={publicationArticleData.description}
                 />
                 <button type='button' className='px-6 bg-green-500 hover:bg-green-600 text-white py-2 w-fit' onClick={() => {
+                  if (publicationArticleData.name.length < 1 || publicationArticleData.collaborators.length < 1 || publicationArticleData.time.length < 1 || publicationArticleData.description.length < 1) return toast.error('Please fill all the fields for the publication article')
                   setPublicationData({
                     ...publicationData,
                     articles: [...publicationData.articles, publicationArticleData]
@@ -153,7 +152,7 @@ const CreatePublication: React.FC = () => {
           <button
             role="button"
             aria-label="login "
-            className="focus:ring-2 flex items-center justify-center focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none  text-white focus:outline-none bg-green-500 border rounded hover:bg-green-600 duration-1000 hover:animate-ring py-4 w-full disabled:bg-slate-600"
+            className="dark:border-none flex items-center justify-center  focus:ring-indigo-700 text-sm font-semibold leading-none  text-white focus:outline-none bg-green-500 border rounded hover:bg-green-600 duration-1000 ring py-4 w-full disabled:bg-slate-600"
             type="submit"
             disabled={loading}
           >

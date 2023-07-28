@@ -26,9 +26,9 @@ const CreateNews: React.FC = () => {
     return (
         <div className='w-full flex flex-col mt-8 items-center'>
             <form className='w-11/12 lg:w-10/12 flex flex-col items-center' onSubmit={handleSubmit}>
-                <span className='font-bold text-2xl mb-8'>Create a New Article</span>
+                <span className='font-bold text-2xl mb-8 dark:text-white'>Create a New Article</span>
                 <div className='w-full'>
-                    <label className="text-sm font-medium leading-none text-gray-800">
+                    <label className="text-sm font-medium leading-none text-gray-800  dark:text-white">
                         Title
                     </label>
                     <input
@@ -44,14 +44,13 @@ const CreateNews: React.FC = () => {
                     />
                 </div>
                 <div className='w-full'>
-                    <label className="text-sm font-medium leading-none text-gray-800">
-                        Title
+                    <label className="text-sm font-medium leading-none text-gray-800  dark:text-white">
+                        Description
                     </label>
                     <textarea
                         rows={5}
                         className="bg-gray-200 border rounded focus:outline-none text-sm font-medium leading-none text-gray-800 py-3 w-full pl-3 my-3"
-                        placeholder={`Description: \n\n  Tip 1: Use <color>text</text> to add color to your text \n  Tip 2: Use [link](https://www.google.com) to add a link
-                        `}
+                        placeholder={`Description: \n\n  Tip 1: Use <color>text</text> to add color to your text \n  Tip 2: Use [link](https://www.google.com) to add a link`}
                         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                             setNewsData({ ...newsData, text: e.target.value });
                         }}
@@ -62,7 +61,7 @@ const CreateNews: React.FC = () => {
                     <button
                         role="button"
                         aria-label="login "
-                        className="focus:ring-2 flex items-center justify-center focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none  text-white focus:outline-none bg-green-500 border rounded hover:bg-green-600 duration-1000 hover:animate-ring py-4 w-full disabled:bg-slate-600"
+                        className="focus:ring-2 flex items-center justify-center focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none  text-white focus:outline-none bg-green-500 border rounded hover:bg-green-600 duration-1000 ring py-4 w-full disabled:bg-slate-600"
                         type="submit"
                         disabled={loading}
                     >
