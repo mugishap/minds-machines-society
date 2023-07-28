@@ -1,4 +1,5 @@
 import { IconType } from "react-icons";
+import { NonIndexRouteObject } from "react-router-dom";
 
 export interface ISidebarLink {
     title: string;
@@ -7,10 +8,6 @@ export interface ISidebarLink {
     navbarHeading: string
 }
 
-export interface INew {
-    date: number;
-    text: string;
-}
 
 export interface IResearch {
     heading: string;
@@ -56,12 +53,15 @@ export interface ILoginData {
     showPassword: boolean
 }
 
-export interface ICreateNewsData {
+export interface INews {
+    _id?: string
     title: string,
-    text: string
+    text: string,
+    created_at?: Number
 }
 
-export interface ICreatePublicationData {
+export interface IPublication {
+    _id?: string
     title: string,
     articles: {
         name: string
@@ -69,4 +69,5 @@ export interface ICreatePublicationData {
         time: string
         description: string
     }[],
+    created_at?: Number
 }

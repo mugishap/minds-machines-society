@@ -3,6 +3,8 @@ import './App.css'
 import Pages from './Pages'
 import { motion } from 'framer-motion'
 import { Logo } from './assets'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
 
 const App: React.FC = () => {
 
@@ -26,6 +28,11 @@ const App: React.FC = () => {
       <motion.div initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }} className="">
+        <ToastContainer
+          theme='colored'
+          position='top-right'
+          hideProgressBar={true}
+        />
         <Pages />
       </motion.div>
     </React.Suspense>

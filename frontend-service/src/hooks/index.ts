@@ -1,5 +1,5 @@
 import { api } from "../api"
-import { ICreateNewsData, ICreatePublicationData, ILoginData } from "../types"
+import { INews, IPublication, ILoginData } from "../types"
 import { toast } from 'react-toastify';
 
 export const useLogin = async ({ data, setIsLoggedIn, setLoading }: { data: ILoginData, setIsLoggedIn: Function, setLoading: Function }) => {
@@ -23,8 +23,10 @@ export const useGetNews = async ({ setLoading, setNews }: { setLoading: Function
     try {
         setLoading(true)
         const request = await api.get("/news/all")
-        const response = request.data
-        setNews(response.news)
+        const response = await request.data
+        setNews(response.data.news)
+        setLoading(false)
+        console.log(response.data.news)
     } catch (error: any) {
         console.log(error)
         if (error.response.data.message) return toast.error(error.response.data.message)
@@ -41,7 +43,7 @@ export const useGetPublications = async ({ setLoading, setPublications }: { setL
         setLoading(true)
         const request = await api.get("/publications/all")
         const response = request.data
-        setPublications(response.publications)
+        setPublications(response.data.publications)
     } catch (error: any) {
         console.log(error)
         if (error.response.data.message) return toast.error(error.response.data.message)
@@ -51,7 +53,7 @@ export const useGetPublications = async ({ setLoading, setPublications }: { setL
         setLoading(false)
     }
 }
-export const useCreateNews = async ({ data, addNews, setLoading }: { data: ICreateNewsData, addNews: Function, setLoading: Function }) => {
+export const useCreateNews = async ({ data, addNews, setLoading }: { data: INews, addNews: Function, setLoading: Function }) => {
     try {
         setLoading(true)
         const request = await api.post("/news/create", data)
@@ -68,7 +70,7 @@ export const useCreateNews = async ({ data, addNews, setLoading }: { data: ICrea
     }
 }
 
-export const useCreatePublication = async ({ data, addPublication, setLoading }: { data: ICreatePublicationData, addPublication: Function, setLoading: Function }) => {
+export const useCreatePublication = async ({ data, addPublication, setLoading }: { data: IPublication, addPublication: Function, setLoading: Function }) => {
     try {
         setLoading(true)
         const request = await api.post("/publications/create", data)

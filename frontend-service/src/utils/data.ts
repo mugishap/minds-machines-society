@@ -1,10 +1,10 @@
-import { IAlumni, INew, IProfile, IResearch, IResearchAssisstants, ISidebarLink, ITeaching } from "../types";
-import { FaBook, FaGraduationCap } from "react-icons/fa"
-import { BsCalendarWeekFill } from "react-icons/bs"
-import { BiSearchAlt2 } from "react-icons/bi"
-import { HiUserGroup } from 'react-icons/hi'
-import { MdContactPhone } from 'react-icons/md'
+import { BiSearchAlt2 } from "react-icons/bi";
+import { BsCalendarWeekFill } from "react-icons/bs";
+import { FaBook, FaGraduationCap } from "react-icons/fa";
+import { HiUserGroup } from 'react-icons/hi';
+import { MdContactPhone } from 'react-icons/md';
 import { NaturalProcessing, SocialMedia } from "../assets";
+import { IAlumni, IProfile, IResearch, IResearchAssisstants, ISidebarLink, ITeaching } from "../types";
 
 export const sidebarLinks: ISidebarLink[] = [
     {
@@ -84,27 +84,6 @@ developing AI systems that foster a healthier online public sphere, and [Cortico
 systems for a healthier public dialogue, from 2021 to 2023 and 2016 to 2019, respectively. He received his <#FF6737>Ph.
 D., MSc, and BSc from MIT</#FF6737> in 2015, 2010, and 2008.
 `
-
-export const news: INew[] = [
-    {
-        date: 1632931200000,
-        text: `
-    Excited to participate in a panel titled "Is It Real or Is It AI?" at the [2023 New Hampshire Digital Government Summit](https://events.govtech.com/New-Hampshire-Digital-Government-Summit.html) on the ethics, challenges, and promises of generative AI.
-    `
-    },
-    {
-        date: 1632931200000,
-        text: `
-    Excited to participate in a panel titled "Is It Real or Is It AI?" at the [2023 New Hampshire Digital Government Summit](https://events.govtech.com/New-Hampshire-Digital-Government-Summit.html) on the ethics, challenges, and promises of generative AI.
-    `
-    },
-    {
-        date: 1632931200000,
-        text: `
-    Excited to participate in a panel titled "Is It Real or Is It AI?" at the [2023 New Hampshire Digital Government Summit](https://events.govtech.com/New-Hampshire-Digital-Government-Summit.html) on the ethics, challenges, and promises of generative AI.
-    `
-    },
-]
 
 export const researches: IResearch[] = [
     {

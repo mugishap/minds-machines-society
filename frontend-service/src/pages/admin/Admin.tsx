@@ -1,16 +1,17 @@
-import React, { FormEvent, useEffect, useState } from 'react'
-import Layout from '../../layout/Layout'
+import React, { FormEvent, useState } from 'react'
 import { BiLoaderAlt, BiMenu } from 'react-icons/bi'
-import { CommonContext } from '../../context'
+import { toast } from 'react-toastify'
 import AdminPanel from '../../components/admin/AdminPanel'
 import CreateNews from '../../components/admin/CreateNews'
 import CreatePublication from '../../components/admin/CreatePublication'
-import { ILoginData } from '../../types'
+import { CommonContext } from '../../context'
 import { useLogin } from '../../hooks'
+import Layout from '../../layout/Layout'
+import { ILoginData } from '../../types'
 
 const Admin: React.FC = () => {
 
-    const { setShowSidebar, isLoggedIn, setIsLoggedIn } = React.useContext(CommonContext)
+    const { setShowSidebar, isLoggedIn, setIsLoggedIn,  } = React.useContext(CommonContext)
     const [loginData, setLoginData] = useState<ILoginData>({
         username: "",
         password: "",
@@ -21,6 +22,7 @@ const Admin: React.FC = () => {
     const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
         try {
             e.preventDefault()
+            if (!loginData.username || !loginData.password) return toast.error("Please fill all the fields")
             await useLogin({ data: loginData, setIsLoggedIn, setLoading })
         } catch (error) {
             console.log(error);
@@ -33,8 +35,10 @@ const Admin: React.FC = () => {
             {
                 isLoggedIn ?
                     <div className='w-full flex flex-col'>
-                        <div className='w-3/4 flex bg-slate-300 items-center rounde-lg shadow-lg'>
-
+                        <div className='w-11/12 mb-4 flex p-2 bg-[#ddd] items-center rounded-lg shadow-lg'>
+                            <button className={`w-1/3 py-2 mx-2 ${mode === 'admin-panel' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('admin-panel')}>Admin Panel</button>
+                            <button className={`w-1/3 py-2 mx-2 ${mode === 'create-publication' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('create-publication')}>Create Publication</button>
+                            <button className={`w-1/3 py-2 mx-2 ${mode === 'create-news' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('create-news')}>Create News</button>
                         </div>
                         <div>
                             {mode === 'admin-panel' && <AdminPanel />}

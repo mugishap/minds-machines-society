@@ -4,9 +4,9 @@ const login = async (req, res) => {
     try {
         const { username, password } = req.body
         if (username == 'admin' && password == 'admin.pass') {
-            return ApiResponse.success("Logged in successfully", {})
+            return res.status(200).json(ApiResponse.success("Logged in successfully", {}))
         }
-        return ApiResponse.error("Invalid credentials", {})
+        return res.status(400).json(ApiResponse.error("Invalid credentials", {}))
     } catch (error) {
         console.log(error)
         return res.status(201).json(ApiResponse.error("Internal Server Error", {}))

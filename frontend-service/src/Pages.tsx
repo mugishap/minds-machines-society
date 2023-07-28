@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CommonContext } from './context'
+import { useGetNews, useGetPublications } from './hooks'
+import { INews, IPublication } from './types'
 const Admin = React.lazy(() => import('./pages/admin/Admin'))
 const Publications = React.lazy(() => import('./pages/publications/Publications'))
 const Research = React.lazy(() => import('./pages/research/Research'))
@@ -14,13 +16,40 @@ const Pages: React.FC<{}> = () => {
     const [theme, setTheme] = React.useState<'light' | 'dark'>("light")
     const [showSidebar, setShowSidebar] = React.useState<boolean>(false)
     const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false)
+    const [loading, setLoading] = React.useState<boolean>(false)
+    const [news, setNews] = React.useState<INews[]>([])
+    const [publications, setPublications] = React.useState<IPublication[]>([])
+
+    const addNews = ({ _news }: { _news: INews }) => {
+        if (!news) return setNews([_news])
+        setNews([...news, _news])
+    }
+
+    const addPublication = ({ publication }: { publication: IPublication }) => {
+        if (!publications) return setPublications([publication])
+        setPublications([...publications, publication])
+
+    }
+    useEffect(() => {
+        useGetNews({ setLoading, setNews })
+        useGetPublications({ setLoading, setPublications })
+    }, [])
 
     useEffect(() => {
         localStorage.setItem("theme", theme)
     }, [theme])
+
     return (
         <CommonContext.Provider
             value={{
+                news,
+                addNews,
+                addPublication,
+                setNews,
+                loading,
+                setLoading,
+                publications,
+                setPublications,
                 isLoggedIn,
                 setIsLoggedIn,
                 theme,
