@@ -19,7 +19,8 @@ const Pages: React.FC<{}> = () => {
     const [loading, setLoading] = React.useState<boolean>(false)
     const [news, setNews] = React.useState<INews[]>([])
     const [publications, setPublications] = React.useState<IPublication[]>([])
-
+    const [_publications, set_publications] = React.useState<IPublication[]>([])
+    const [query, setQuery] = React.useState<string>('')
     const addNews = ({ _news }: { _news: INews }) => {
         if (!news.length) return setNews([_news])
         setNews([...news, _news])
@@ -30,10 +31,21 @@ const Pages: React.FC<{}> = () => {
         setPublications([...publications, publication])
 
     }
+
     useEffect(() => {
         useGetNews({ setLoading, setNews })
         useGetPublications({ setLoading, setPublications })
     }, [])
+    
+    useEffect(() => {
+        set_publications(publications)
+        if (query === "") return setPublications(_publications);
+        const searchedPublications = _publications.filter(
+          (publication: IPublication) =>
+            publication["title"].toLowerCase().includes(query)
+        );
+        setPublications(searchedPublications);
+    }, [query])
 
     useEffect(() => {
         localStorage.setItem("theme", theme)
@@ -42,6 +54,8 @@ const Pages: React.FC<{}> = () => {
     return (
         <CommonContext.Provider
             value={{
+                query,
+                setQuery,
                 news,
                 addNews,
                 addPublication,

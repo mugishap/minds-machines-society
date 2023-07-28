@@ -3,10 +3,11 @@ import { toast } from 'react-toastify'
 import { useCreateNews } from '../../hooks'
 import { CommonContext } from '../../context'
 import { BiLoaderAlt } from 'react-icons/bi'
+import { INews } from '../../types'
 
 const CreateNews: React.FC = () => {
 
-    const [newsData, setNewsData] = React.useState({
+    const [newsData, setNewsData] = React.useState<INews>({
         title: '',
         text: ''
     })

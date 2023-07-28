@@ -11,13 +11,13 @@ import { ILoginData } from '../../types'
 
 const Admin: React.FC = () => {
 
-    const { setShowSidebar, isLoggedIn, setIsLoggedIn,  } = React.useContext(CommonContext)
+    const { setShowSidebar, isLoggedIn, setIsLoggedIn, } = React.useContext(CommonContext)
     const [loginData, setLoginData] = useState<ILoginData>({
         username: "",
         password: "",
         showPassword: false
     })
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const [mode, setMode] = useState<'create-news' | 'create-publication' | 'admin-panel'>('admin-panel')
     const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
         try {

@@ -7,12 +7,12 @@ import { IPublication } from '../../types'
 
 const Publications: React.FC = () => {
 
-    const { publications } = React.useContext(CommonContext)
+    const { publications, query, setQuery } = React.useContext(CommonContext)
 
     return (
         <Layout>
             <div className='bg-white w-full rounded-3xl  p-3 px-6 flex justify-between items-center mb-6 dark:bg-[#323232]'>
-                <input type="text" placeholder='Search...' className='outline-none bg-inherit w-8/12 dark:text-white' />
+                <input type="text" placeholder='Search...' className='outline-none bg-inherit w-8/12 dark:text-white' value={query} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)} />
                 <div className='flex items-center'>
                     <FaTag size={20} className="mx-3 text-[#575757] dark:text-white" />
                     <TbCirclesRelation size={25} className="mx-3 text-[#575757] rotate-45 dark:text-white" />
