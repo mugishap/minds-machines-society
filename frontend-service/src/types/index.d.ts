@@ -52,7 +52,8 @@ export interface IResearchAssisstants {
 
 export interface ILoginData {
     username: string,
-    password: string
+    password: string,
+    showPassword: boolean
 }
 
 export interface ICreateNewsData {
