@@ -22,9 +22,11 @@ const Contact: React.FC = () => {
                     }),
                 ],
                 view: new View({
-                    center: fromLonLat([63.5676, 44.6661]),
+                    center: fromLonLat([-72.2889, 43.7020]),
                     zoom: 5,
+
                 }),
+
             });
         }
     }, []);
