@@ -37,12 +37,13 @@ export const useGetNews = async ({ setLoading, setNews }: { setLoading: Function
 }
 
 
-export const useGetPublications = async ({ setLoading, setPublications }: { setLoading: Function, setPublications: Function }) => {
+export const useGetPublications = async ({ setLoading, setPublications, set_publications, }: { setLoading: Function, setPublications: Function, set_publications: Function }) => {
     try {
         setLoading(true)
         const request = await api.get("/publications/all")
         const response = request.data
         setPublications(response.data.publications)
+        set_publications(response.data.publications)
         setLoading(false)
         console.log(response.data.publications)
     } catch (error: any) {

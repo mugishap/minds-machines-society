@@ -29,13 +29,11 @@ const Pages: React.FC<{}> = () => {
     const addPublication = ({ publication }: { publication: IPublication }) => {
         if (!publications.length) return setPublications([publication])
         setPublications([...publications, publication])
-
     }
 
     useEffect(() => {
         useGetNews({ setLoading, setNews })
-        useGetPublications({ setLoading, setPublications })
-        set_publications(publications)
+        useGetPublications({ setLoading, setPublications, set_publications })
     }, [])
 
     useEffect(() => {
