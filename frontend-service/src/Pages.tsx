@@ -39,7 +39,8 @@ const Pages: React.FC<{}> = () => {
     useEffect(() => {
         const searchedPublications = _publications.filter(
             (publication: IPublication) =>
-                publication["title"].toLowerCase().includes(query.toLowerCase())
+                publication.articles.some((article) => article.name.toLowerCase().includes(query.toLowerCase()) || article.description.toLowerCase().includes(query.toLowerCase())) ||
+                publication.title.toLowerCase().includes(query.toLowerCase())
         );
         setPublications(searchedPublications);
     }, [query])
