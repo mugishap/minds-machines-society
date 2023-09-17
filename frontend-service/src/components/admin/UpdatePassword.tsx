@@ -25,7 +25,7 @@ const UpdatePassword: React.FC = () => {
     }
     return (
         <div className='flex flex-col items-center'>
-            <span className='font-bold text-lg my-4'>Update Password Wizard</span>
+            <span className='font-bold text-lg my-4 dark:text-white'>Update Password Wizard</span>
             <form className='w-2/4 flex flex-col' onSubmit={handleUpdatePassword}>
                 <div className="mt-6  w-full">
                     <label className="text-sm font-medium leading-none text-gray-800 dark:text-white">
