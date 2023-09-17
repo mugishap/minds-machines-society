@@ -9,17 +9,17 @@ const createNews = async (req, res) => {
         return res.status(201).json(ApiResponse.success("News created successfully", { news }))
     } catch (error) {
         console.log(error)
-        return res.status(201).json(ApiResponse.error("Internal Server Error", {}))
+        return res.status(400).json(ApiResponse.error("Internal Server Error", {}))
     }
 }
 
 const getNews = async (req, res) => {
     try {
         const news = await News.find({})
-        return res.status(201).json(ApiResponse.success("News fetched successfully", { news }))
+        return res.status(200).json(ApiResponse.success("News fetched successfully", { news }))
     } catch (error) {
         console.log(error)
-        return res.status(201).json(ApiResponse.error("Internal Server Error", {}))
+        return res.status(400).json(ApiResponse.error("Internal Server Error", {}))
     }
 }
 

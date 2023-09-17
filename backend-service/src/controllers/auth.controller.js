@@ -14,7 +14,7 @@ const login = async (req, res) => {
         return res.status(200).json(ApiResponse.success("Login successfull", { user, token }))
     } catch (error) {
         console.log(error)
-        return res.status(201).json(ApiResponse.error("Internal Server Error", {}))
+        return res.status(400).json(ApiResponse.error("Internal Server Error", {}))
     }
 }
 

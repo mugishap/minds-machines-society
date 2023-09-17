@@ -8,6 +8,7 @@ import { CommonContext } from '../../context'
 import { useLogin } from '../../hooks'
 import Layout from '../../layout/Layout'
 import { ILoginData } from '../../types'
+import UpdatePassword from '../../components/admin/UpdatePassword'
 
 const Admin: React.FC = () => {
 
@@ -18,7 +19,7 @@ const Admin: React.FC = () => {
         showPassword: false
     })
     const [loading, setLoading] = useState<boolean>(false)
-    const [mode, setMode] = useState<'create-news' | 'create-publication' | 'admin-panel'>('admin-panel')
+    const [mode, setMode] = useState<'create-news' | 'create-publication' | 'admin-panel' | 'update-password'>('admin-panel')
     const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
         try {
             e.preventDefault()
@@ -36,14 +37,16 @@ const Admin: React.FC = () => {
                 isLoggedIn ?
                     <div className='w-full flex flex-col'>
                         <div className='w-11/12 mb-4 flex p-2 bg-[#ddd] items-center rounded-lg shadow-lg'>
-                            <button className={`w-1/3 py-2 mx-2 ${mode === 'admin-panel' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('admin-panel')}>Admin Panel</button>
-                            <button className={`w-1/3 py-2 mx-2 ${mode === 'create-publication' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('create-publication')}>Create Publication</button>
-                            <button className={`w-1/3 py-2 mx-2 ${mode === 'create-news' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('create-news')}>Create News</button>
+                            <button className={`w-1/4 py-2 mx-2 ${mode === 'admin-panel' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('admin-panel')}>Admin Panel</button>
+                            <button className={`w-1/4 py-2 mx-2 ${mode === 'create-publication' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('create-publication')}>Create Publication</button>
+                            <button className={`w-1/4 py-2 mx-2 ${mode === 'create-news' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('create-news')}>Create News</button>
+                            <button className={`w-1/4 py-2 mx-2 ${mode === 'update-password' ? ' bg-[#ccc]' : 'bg-inherit'} rounded-lg cursor-pointer px-4`} onClick={() => setMode('update-password')}>Update Password</button>
                         </div>
                         <div>
                             {mode === 'admin-panel' && <AdminPanel />}
                             {mode === 'create-news' && <CreateNews />}
                             {mode === 'create-publication' && <CreatePublication />}
+                            {mode === 'update-password' && <UpdatePassword />}
                         </div>
                     </div>
                     :

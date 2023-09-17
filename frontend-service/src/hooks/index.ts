@@ -8,7 +8,26 @@ export const useLogin = async ({ data, setIsLoggedIn, setLoading }: { data: ILog
         const request = await api.post("/auth/login", { ...data })
         const response = request.data
         toast.success(response.message)
+        localStorage.setItem('token', response.data.token)
         setIsLoggedIn(true)
+    } catch (error: any) {
+        console.log(error)
+        if (error.response.data.message) return toast.error(error.response.data.message)
+        toast.error(error.message)
+    }
+    finally {
+        setLoading(false)
+    }
+}
+
+export const useUpdatePassword = async ({ data, setIsLoggedIn, setLoading }: { setIsLoggedIn: Function, data: { oldPassword: string, newPassword: string, showPassword?: boolean }, setLoading: Function }) => {
+    try {
+        delete data.showPassword
+        setLoading(true)
+        const request = await api.put("/users/reset-password", { ...data }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+        const response = request.data
+        toast.success(response.message)
+        setIsLoggedIn(false)
     } catch (error: any) {
         console.log(error)
         if (error.response.data.message) return toast.error(error.response.data.message)
@@ -55,6 +74,7 @@ export const useGetPublications = async ({ setLoading, setPublications, set_publ
         setLoading(false)
     }
 }
+
 export const useCreateNews = async ({ data, addNews, setLoading, setNewsData }: { data: INews, addNews: Function, setLoading: Function, setNewsData: Function }) => {
     try {
         setLoading(true)
