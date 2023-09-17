@@ -7,14 +7,16 @@ import publicationsRouter from './src/routes/publications.routes.js';
 import connectDB from './src/utils/database.js';
 import http from 'http'
 import options from './src/utils/cors.js'
+import userRouter from './src/routes/user.routes.js';
 
 const app = express()
 const server = http.createServer(app)
 
-app.use(cors(options))
+app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use("/api/v1/news", newsRouter)
+app.use("/api/v1/users", userRouter)
 app.use("/api/v1/publications", publicationsRouter)
 app.use("/api/v1/auth", authRouter)
 
